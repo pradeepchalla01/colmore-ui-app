@@ -26,4 +26,4 @@ export default function SearchReducer(state = initialState, action) {
   }
 }
 
-export const getSearchResults = state => state.SearchReducer;
+export const getSearchData = state => state.SearchReducer;
