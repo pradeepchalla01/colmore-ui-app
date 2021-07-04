@@ -1,15 +1,14 @@
 import client from '../config/HttpClient';
+import { getApiKey } from '../../constants';
+import mockJson from '../constants/mock-json';
 
-const baseURL = window.location.origin;
-const dynamicPath = window.location.pathname.split('/')[1];
-const isLocal = baseURL === 'http://localhost:3000';
+const apiKey = getApiKey();
+const baseURL = 'https://www.alphavantage.co';
 
-export const dynamicPathName = isLocal ? 'http://localhost:3000' : baseURL + '/' + dynamicPath;
-
-export const checkOnBoarding = () => {
-  return client.get(`${dynamicPathName}/validate-user`)
-}
-
-export const searchCompany = () => {
-  return client.get(`${dynamicPathName}/validate-user`)
+export const searchCompany = (keyword) => {
+  const url = `${baseURL}/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${apiKey}`;
+  console.log(url);
+  console.log(client);
+  return mockJson;
+  // return client.get(url);
 }

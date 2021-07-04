@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-import APIKey from './../../redux/constants/APIKey';
+import { setApiKey } from '../../constants/index';
 
 const Landing = () => {
   const [key, setKey] = useState('');
@@ -8,16 +9,21 @@ const Landing = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    APIKey.setApiKey(key);
+    setApiKey(key);
     history.push("/search");
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type="text" required onInput={e => setKey(e.target.value)} />
-        <button type="submit">Next</button>
-      </form>
+      <Row>
+        <Col md={6}>
+          <Form onSubmit={handleSubmit}>
+            <h2>Landing Page</h2>
+            <Form.Control type="text" placeholder="API Key" required onInput={e => setKey(e.target.value)} />
+            <Button className="mt-2" variant="primary" type="submit">Next</Button>
+          </Form>
+        </Col>
+      </Row>
     </>
   )
 }

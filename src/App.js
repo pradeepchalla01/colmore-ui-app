@@ -5,15 +5,15 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import Landing from '../src/components/landing/index';
 import Search from '../src/components/search/index';
-import OnBoarding from '../src/components/onboarding/index';
 import store from '../src/redux/store';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <Provider store={store}>
         <Router>
           <Switch>
@@ -24,7 +24,7 @@ function App() {
               <Search />
             </Route>
             <Route path="/details">
-              <OnBoarding />
+              <Landing />
             </Route>
           </Switch>
         </Router>

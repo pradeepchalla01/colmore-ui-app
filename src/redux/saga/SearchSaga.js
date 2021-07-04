@@ -1,14 +1,16 @@
 
-import { takeLatest, put, call } from 'redux-saga/effects';
+import { takeLatest, put, call, delay } from 'redux-saga/effects';
 import * as types from '../constants';
 import { searchCompany } from '../services';
 
-export const searchCompanySaga = function* () {
+export const searchCompanySaga = function* (action) {
   try {
-    yield call(searchCompany)
-    yield put({ type: types.SEARCH_COMPANY_SUCCESS })
+    yield put({ type: types.LOADING });
+    yield delay(1000);
+    const searchResults = yield call(searchCompany, action.keyword);
+    yield put({ type: types.SEARCH_COMPANY_SUCCESS, payload: searchResults });
   } catch {
-    console.log("error")
+    yield put({ type: types.SEARCH_COMPANY_FAILURE });
   }
 }
 
