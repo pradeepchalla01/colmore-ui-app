@@ -1,7 +1,9 @@
 import OnBoardingSaga from './OnBoardingSaga';
+import SearchCompanySaga from './SearchSaga';
 
 const rootSaga = [
-  OnBoardingSaga
+  OnBoardingSaga,
+  SearchCompanySaga
 ]
 
 export default rootSaga;

@@ -1,7 +1,7 @@
 
 import { takeLatest, put, call } from 'redux-saga/effects';
 import * as types from '../constants';
-import { checkOnBoarding } from '../services/OnBoardingServices';
+import { checkOnBoarding } from '../services';
 
 export const validateUserSaga = function* () {
   try {
