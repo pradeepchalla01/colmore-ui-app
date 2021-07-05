@@ -3,7 +3,6 @@ import * as type from '../constants';
 const initialState = {};
 
 export default function SearchReducer(state = initialState, action) {
-  console.log(action)
   switch (action.type) {
     case type.LOADING:
       return {
