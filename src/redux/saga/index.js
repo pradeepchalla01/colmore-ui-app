@@ -1,7 +1,9 @@
 import SearchCompanySaga from './SearchSaga';
+import CompanyDetailsSaga from './CompanyDetailsSaga';
 
 const rootSaga = [
-  SearchCompanySaga
+  SearchCompanySaga,
+  CompanyDetailsSaga
 ]
 
 export default rootSaga;

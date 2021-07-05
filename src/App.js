@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import Landing from '../src/components/landing/index';
 import Search from '../src/components/search/index';
+import Details from '../src/components/details/index';
 import store from '../src/redux/store';
 
 function App() {
@@ -23,9 +24,7 @@ function App() {
             <Route path="/search">
               <Search />
             </Route>
-            <Route path="/details">
-              <Landing />
-            </Route>
+            <Route path="/details/:id" render={(props) => <Details {...props} />} />
           </Switch>
         </Router>
       </Provider>

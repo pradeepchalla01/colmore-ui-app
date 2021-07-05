@@ -8,7 +8,7 @@ export const searchCompanySaga = function* (action) {
     yield put({ type: types.LOADING });
     yield delay(1000);
     const searchResults = yield call(searchCompany, action.keyword);
-    yield put({ type: types.SEARCH_COMPANY_SUCCESS, payload: searchResults });
+    yield put({ type: types.SEARCH_COMPANY_SUCCESS, payload: searchResults.data });
   } catch {
     yield put({ type: types.SEARCH_COMPANY_FAILURE });
   }

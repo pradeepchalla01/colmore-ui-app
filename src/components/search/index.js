@@ -27,14 +27,15 @@ const Search = () => {
     setKeyword('');
   }
 
+  console.log(searchData);
   const selectCompany = (selectedCompany) => {
-    history.push("/details");
+    history.push(`/details/${selectedCompany['1. symbol']}`);
   }
 
   return (
     <>
-      <Row className="mb-2">
-        <Col md={6}>
+      <Row className="mb-4">
+        <Col md={9}>
           <Form onSubmit={handleSubmit}>
             <h2>Search Page</h2>
             <Form.Control type="text" placeholder="Search company" required value={keyword} onInput={e => setKeyword(e.target.value)} />
@@ -44,7 +45,7 @@ const Search = () => {
       </Row>
       {searchData.loading &&
         <Row>
-          <Col md={6}>
+          <Col md={9}>
             <Spinner animation="border" role="status">
               <span className="sr-only">Loading...</span>
             </Spinner>
@@ -53,6 +54,9 @@ const Search = () => {
       }
       {searchData.searchResults &&
         <Row>
+          <Col md={3}>
+
+          </Col>
           <Col md={6}>
             <Table>
               <thead>
